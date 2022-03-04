@@ -44,13 +44,20 @@ app.post("/talktochatbot", async (req, res) => {
         },
     }
 
-    const response = await sessionClient.detectIntent(request);
-    // console.log("Response", response)
-    console.log("Response", response[0].queryResult.fulfillmentText)
-
-    res.send({
-        text: response[0].queryResult.fulfillmentText
-    })
+    try
+    {
+        const response = await sessionClient.detectIntent(request);
+        // console.log("Response", response)
+        console.log("Response", response[0].queryResult.fulfillmentText)
+    
+        res.send({
+            text: response[0].queryResult.fulfillmentText
+        })
+    }
+    catch(e)
+    {
+        console.log("Error while detecting Intent ", e)
+    }
 
 })
 
