@@ -33,7 +33,7 @@ app.post("/talktochatbot", async (req, res) => {
         sessionId
     )
 
-    // The text query request.
+    // The text query request.  
     const request = {
         session: sessionPath,
         queryInput: {
